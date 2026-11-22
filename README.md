@@ -21,7 +21,7 @@ No installer, no admin rights.
 **Build it yourself** (Windows 10/11, nothing to install – uses the C# compiler that ships with Windows):
 
 ```powershell
-git clone https://github.com/<owner>/YourPetKalo.git
+git clone https://github.com/iamtanbin/YourPetKalo.git
 cd YourPetKalo
 powershell -ExecutionPolicy Bypass -File .\build.ps1
 .\CatPet.exe
