@@ -1,0 +1,19 @@
+# build output (download CatPet.exe from Releases, or run build.ps1)
+*.exe
+*.pdb
+
+# old robot prototype and scratch previews
+RoboPet.cs
+robot-preview.png
+cat-preview.png
+
+# mac build output
+mac/build/
+
+# editor / OS junk
+.DS_Store
+.vs/
+.vscode/
+*.user
+Thumbs.db
+desktop.ini

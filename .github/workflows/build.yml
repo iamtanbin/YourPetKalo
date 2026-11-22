@@ -1,0 +1,32 @@
+name: build
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build CatPet.exe
+        shell: powershell
+        run: powershell -ExecutionPolicy Bypass -File .\build.ps1
+      - uses: actions/upload-artifact@v4
+        with:
+          name: YourPetKalo-windows
+          path: CatPet.exe
+
+  mac:
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build YourPetKalo.app
+        run: bash mac/build.sh
+      - name: Zip the app
+        run: cd mac/build && ditto -c -k --keepParent YourPetKalo.app YourPetKalo-mac.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: YourPetKalo-mac
+          path: mac/build/YourPetKalo-mac.zip
